@@ -39,3 +39,5 @@ function animate() {
 }
 
 animate() 
+
+//setup
