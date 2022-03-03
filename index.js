@@ -1,5 +1,9 @@
+
+const scoreEl = document.querySelector('#scoreEl')
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
+
+console.log(scoreEl)
 
 canvas.width = innerWidth
 canvas.height = innerHeight
@@ -232,6 +236,8 @@ let game = {
     active: true
 }
 
+let score = 0
+
 for (let i = 0; i < 100; i++) {
     particles.push(new Particle( {
        position: {
@@ -363,6 +369,10 @@ console.log(particles)
                             const invaderFound = grid.invaders.find(invader2 => invader2 === invader)
                             const projectileFound = projectiles.find(projectile2 => projectile2 === projectile)
                             if (invaderFound && projectileFound) {
+                                score += 100
+                                console.log(score)
+                                scoreEl.innerHTML = score
+
                                 createParticles({
                                     object: invader,
                                     fades: true
